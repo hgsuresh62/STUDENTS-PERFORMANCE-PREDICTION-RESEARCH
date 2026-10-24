@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="AI-powered student academic performance prediction system"
+    >
+
+    <title>Student Performance AI</title>
+
+
+    <!-- Browser Tab Icon -->
+    <link
+        rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%237c83ff'/%3E%3Cpath d='M18 40L50 23l32 17-32 17z' fill='white'/%3E%3Cpath d='M30 48v16c8 8 32 8 40 0V48' fill='none' stroke='white' stroke-width='6'/%3E%3C/svg%3E"
+    >
+
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="app-container">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                >
+
+                    <path
+                        d="M3 9.5L12 5l9 4.5L12 14 3 9.5Z"
+                    />
+
+                    <path
+                        d="M6 11.2V16c3 2.2 9 2.2 12 0v-4.8"
+                    />
+
+                    <path
+                        d="M21 10v5"
+                    />
+
+                </svg>
+
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+                    STUDENT PERFORMANCE AI
+                </div>
+
+                <div class="brand-subtitle">
+                    Predictive Academic Analytics
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-badge">
+
+            <span class="status-dot"></span>
+
+            AI-POWERED ANALYTICS
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-label">
+            MACHINE LEARNING • PREDICTIVE ANALYTICS
+        </div>
+
+
+        <h1>
+
+            Student Performance
+
+            <span>Prediction System</span>
+
+        </h1>
+
+
+        <p>
+
+            Analyze academic patterns, study habits and previous
+            performance to estimate a student's final academic outcome.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MAIN GRID
+    ====================================================== -->
+
+    <main class="main-grid">
+
+
+        <!-- =================================================
+             STUDENT PROFILE
+        ================================================== -->
+
+        <section
+            class="card profile-card"
+            id="student-profile"
+        >
+
+            <div class="section-number">
+                01
+            </div>
+
+
+            <h2>
+                Student Profile
+            </h2>
+
+
+            <p class="section-description">
+
+                Enter the student's academic, behavioral and
+                previous performance information.
+
+            </p>
+
+
+
+            <!-- FORM -->
+
+            <form id="predictionForm">
+
+
+                <div class="form-grid">
+
+
+                    <!-- STUDY TIME -->
+
+                    <div class="field">
+
+                        <label for="studytime">
+
+                            <span class="field-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                >
+
+                                    <path
+                                        d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5Z"
+                                    />
+
+                                    <path
+                                        d="M4 18.5A2.5 2.5 0 0 1 6.5 16H20"
+                                    />
+
+                                </svg>
+
+                            </span>
+
+                            Study Time
+
+                        </label>
+
+
+                        <select
+                            id="studytime"
+                            name="studytime"
+                            required
+                        >
+
+                            <option value="1">
+                                1 — Low
+                            </option>
+
+                            <option value="2" selected>
+                                2 — Moderate
+                            </option>
+
+                            <option value="3">
+                                3 — High
+                            </option>
+
+                            <option value="4">
+                                4 — Very High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- FAILURES -->
+
+                    <div class="field">
+
+                        <label for="failures">
+
+                            <span class="field-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                >
+
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="9"
+                                    />
+
+                                    <path
+                                        d="M8 12h8"
+                                    />
+
+                                </svg>
+
+                            </span>
+
+                            Previous Failures
+
+                        </label>
+
+
+                        <select
+                            id="failures"
+                            name="failures"
+                            required
+                        >
+
+                            <option value="0" selected>
+                                0 — None
+                            </option>
+
+                            <option value="1">
+                                1 — One
+                            </option>
+
+                            <option value="2">
+                                2 — Two
+                            </option>
+
+                            <option value="3">
+                                3 — Three
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- ABSENCES -->
+
+                    <div class="field">
+
+                        <label for="absences">
+
+                            <span class="field-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                >
+
+                                    <rect
+                                        x="4"
+                                        y="5"
+                                        width="16"
+                                        height="16"
+                                        rx="2"
+                                    />
+
+                                    <path
+                                        d="M8 3v4M16 3v4M4 10h16"
+                                    />
+
+                                </svg>
+
+                            </span>
+
+                            Absences
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="absences"
+                            name="absences"
+                            min="0"
+                            max="75"
+                            value="0"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- TRAVEL TIME -->
+
+                    <div class="field">
+
+                        <label for="traveltime">
+
+                            <span class="field-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                >
+
+                                    <path
+                                        d="M5 17h14l-1-7H6l-1 7Z"
+                                    />
+
+                                    <path
+                                        d="M7 10l1.5-4h7L17 10"
+                                    />
+
+                                    <circle
+                                        cx="8"
+                                        cy="18"
+                                        r="1.5"
+                                    />
+
+                                    <circle
+                                        cx="16"
+                                        cy="18"
+                                        r="1.5"
+                                    />
+
+                                </svg>
+
+                            </span>
+
+                            Travel Time
+
+                        </label>
+
+
+                        <select
+                            id="traveltime"
+                            name="traveltime"
+                            required
+                        >
+
+                            <option value="1" selected>
+                                1 — Very Short
+                            </option>
+
+                            <option value="2">
+                                2 — Short
+                            </option>
+
+                            <option value="3">
+                                3 — Long
+                            </option>
+
+                            <option value="4">
+                                4 — Very Long
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- ACTIVITIES -->
+
+                    <div class="field">
+
+                        <label for="activities">
+
+                            <span class="field-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                >
+
+                                    <path
+                                        d="M12 3l2.4 5.1L20 9l-4 4 1 5.7-5-2.7-5 2.7 1-5.7-4-4 5.6-.9L12 3Z"
+                                    />
+
+                                </svg>
+
+                            </span>
+
+                            Extracurricular Activities
+
+                        </label>
+
+
+                        <select
+                            id="activities"
+                            name="activities"
+                            required
+                        >
+
+                            <option value="no" selected>
+                                No
+                            </option>
+
+                            <option value="yes">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- HEALTH -->
+
+                    <div class="field">
+
+                        <label for="health">
+
+                            <span class="field-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                >
+
+                                    <path
+                                        d="M20.8 8.5c0 5.5-8.8 11-8.8 11S3.2 14 3.2 8.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 8.8 2.5Z"
+                                    />
+
+                                </svg>
+
+                            </span>
+
+                            Health Status
+
+                        </label>
+
+
+                        <select
+                            id="health"
+                            name="health"
+                            required
+                        >
+
+                            <option value="1">
+                                1 — Very Poor
+                            </option>
+
+                            <option value="2">
+                                2 — Poor
+                            </option>
+
+                            <option value="3" selected>
+                                3 — Average
+                            </option>
+
+                            <option value="4">
+                                4 — Good
+                            </option>
+
+                            <option value="5">
+                                5 — Very Good
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- G1 -->
+
+                    <div class="field">
+
+                        <label for="G1">
+
+                            <span class="field-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                >
+
+                                    <path
+                                        d="M4 19V5"
+                                    />
+
+                                    <path
+                                        d="M4 19h17"
+                                    />
+
+                                    <path
+                                        d="M7 15l4-4 3 2 5-6"
+                                    />
+
+                                </svg>
+
+                            </span>
+
+                            G1 — Previous Grade
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="G1"
+                            name="G1"
+                            min="0"
+                            max="20"
+                            value="10"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- G2 -->
+
+                    <div class="field">
+
+                        <label for="G2">
+
+                            <span class="field-icon">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                >
+
+                                    <path
+                                        d="M4 19V5"
+                                    />
+
+                                    <path
+                                        d="M4 19h17"
+                                    />
+
+                                    <path
+                                        d="M7 15l4-4 3 2 5-6"
+                                    />
+
+                                </svg>
+
+                            </span>
+
+                            G2 — Previous Grade
+
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="G2"
+                            name="G2"
+                            min="0"
+                            max="20"
+                            value="10"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ANALYZE BUTTON -->
+
+                <button
+                    type="submit"
+                    class="predict-button"
+                    id="analyzeButton"
+                >
+
+                    <span>
+                        Analyze Performance
+                    </span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- LOADING -->
+
+                <div
+                    class="loading-message"
+                    id="loadingMessage"
+                    hidden
+                >
+
+                    <span class="spinner"></span>
+
+                    Analyzing student performance...
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RESULT CARD
+        ================================================== -->
+
+        <section
+            class="card result-card"
+            id="resultSection"
+            hidden
+        >
+
+            <div class="section-number">
+                02
+            </div>
+
+
+            <h2>
+                Performance Insight
+            </h2>
+
+
+            <p class="section-description">
+
+                AI-estimated final performance and personalized insight.
+
+            </p>
+
+
+
+            <!-- SCORE AREA -->
+
+            <div class="result-top">
+
+
+                <div class="score-area">
+
+                    <div class="score-label">
+                        PREDICTED PERFORMANCE SCORE
+                    </div>
+
+
+                    <div class="score">
+
+                        <span id="predictedPercentage">
+                            0.00
+                        </span>
+
+                        <small>
+                            /100
+                        </small>
+
+                    </div>
+
+
+                    <div class="score-subtitle">
+                        AI-estimated final performance
+                    </div>
+
+
+                    <div
+                        class="status"
+                        id="predictionStatus"
+                    >
+                        Awaiting prediction
+                    </div>
+
+                </div>
+
+
+
+                <!-- SCORE RING -->
+
+                <div
+                    class="score-ring"
+                    id="scoreCircle"
+                    style="--score: 0%;"
+                >
+
+                    <div class="score-ring-inner">
+
+                        <span id="circlePercentage">
+                            0
+                        </span>
+
+                        <small>
+                            %
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PERFORMANCE LEVEL -->
+
+            <div class="performance">
+
+                <div>
+
+                    <span>
+                        Performance Level
+                    </span>
+
+                    <strong id="performanceLevel">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="performance-line"
+                    id="performanceLine"
+                ></div>
+
+            </div>
+
+
+
+            <!-- DETAILS -->
+
+            <div class="details">
+
+
+                <div>
+
+                    <span>
+                        Predicted Final Grade
+                    </span>
+
+                    <strong id="predictedG3">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Final Result
+                    </span>
+
+                    <strong id="finalResult">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="result-description">
+
+                <div class="description-label">
+                    Prediction Summary
+                </div>
+
+                <p id="resultDescription">
+
+                    Your prediction will appear here.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- INSIGHT -->
+
+            <div class="recommendation">
+
+                <div class="recommendation-icon">
+
+                    ✦
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Performance Insight
+                    </span>
+
+                    <p id="insightText">
+
+                        Submit a prediction to receive
+                        personalized academic insight.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PERSONALIZED STRENGTHS AND ACTIONS -->
+
+            <div class="insight-grid">
+                <div class="insight-list-card">
+                    <h3>Strengths</h3>
+                    <ul id="strengthsList">
+                        <li>Submit a prediction to view strengths.</li>
+                    </ul>
+                </div>
+                <div class="insight-list-card">
+                    <h3>Areas to Improve</h3>
+                    <ul id="improvementList">
+                        <li>Submit a prediction to view suggestions.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="report-actions">
+                <button type="button" class="report-button" id="downloadReportButton">
+                    Download / Print Report
+                </button>
+            </div>
+
+            <!-- NEW PREDICTION -->
+
+            <button
+                type="button"
+                class="new-prediction"
+                onclick="resetPrediction()"
+            >
+
+                <span>
+                    ↻
+                </span>
+
+                New Prediction
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         VISUAL ANALYTICS
+    ====================================================== -->
+
+    <section class="card analytics-card" id="analyticsSection">
+        <div class="section-number">03</div>
+        <h2>Performance Visualizations</h2>
+        <p class="section-description">
+            Compare the student's previous grades with the model's predicted final grade.
+            The G3 value is an estimate, not an observed final grade.
+        </p>
+        <div class="chart-panel">
+            <h3>Grade Progression</h3>
+            <p>Grades are displayed on the original 0–20 scale.</p>
+            <div class="chart-wrap grade-chart-wrap">
+                <canvas id="gradeProgressChart" aria-label="Bar chart comparing G1, G2 and predicted G3" role="img"></canvas>
+            </div>
+            <p class="chart-note" id="gradeChartNote">Run a prediction to populate this chart.</p>
+        </div>
+
+        <div class="chart-panel report-input-panel" id="reportInputPanel" hidden>
+            <h3>Student Inputs Used</h3>
+            <p id="reportInputSummary">The input values used for this prediction will appear here.</p>
+        </div>
+
+        <div class="chart-panel evaluation-panel">
+            <h3>Model Evaluation</h3>
+            <p>Reported evaluation figures from the current project. Confirm them against the final test-set evaluation before academic submission.</p>
+            <div class="evaluation-grid">
+                <div class="chart-wrap">
+                    <canvas id="errorMetricsChart" aria-label="Bar chart showing reported MAE and RMSE" role="img"></canvas>
+                </div>
+                <div class="chart-wrap">
+                    <canvas id="modelScoreChart" aria-label="Bar chart showing reported R squared and pass fail accuracy" role="img"></canvas>
+                </div>
+            </div>
+            <p class="chart-note">MAE and RMSE are measured in grade points. R² and pass/fail accuracy describe model evaluation, not an individual student's chance of passing.</p>
+        </div>
+    </section>
+
+
+    <!-- =====================================================
+         RESEARCH-ORIENTED MODEL DIAGNOSTICS
+    ====================================================== -->
+
+    <section class="card research-analytics-card" id="researchAnalyticsSection">
+        <div class="section-number">04</div>
+        <div class="research-heading-row">
+            <div>
+                <p class="research-eyebrow">MODEL EXPLAINABILITY · HELD-OUT VALIDATION</p>
+                <h2>Research Model Diagnostics</h2>
+                <p class="section-description">Model-derived diagnostics generated from the saved XGBoost model and the project's 80/20 test split.</p>
+            </div>
+            <div class="research-status" id="analyticsStatus" role="status">Loading analytics…</div>
+        </div>
+
+        <div class="research-chart-grid">
+            <article class="chart-panel research-chart-panel feature-chart-panel">
+                <div class="research-chart-title">
+                    <span class="research-chart-index">01</span>
+                    <div><h3>Feature Importance</h3><p>Relative split-based importance from the saved XGBoost model.</p></div>
+                </div>
+                <div class="chart-wrap research-feature-chart-wrap"><canvas id="featureImportanceChart" aria-label="Ranked XGBoost feature importance chart" role="img"></canvas></div>
+                <p class="chart-note">Importance describes how the model uses features; it does not establish causation.</p>
+            </article>
+
+            <article class="chart-panel research-chart-panel actual-chart-panel">
+                <div class="research-chart-title">
+                    <span class="research-chart-index">02</span>
+                    <div><h3>Actual vs. Predicted G3</h3><p>Each point represents one held-out test student.</p></div>
+                </div>
+                <div class="chart-wrap research-scatter-chart-wrap"><canvas id="actualPredictedChart" aria-label="Scatter plot of actual and predicted final grades" role="img"></canvas></div>
+                <p class="chart-note">Points closer to the diagonal reference line indicate more accurate estimates.</p>
+            </article>
+
+            <article class="chart-panel research-chart-panel residual-chart-panel">
+                <div class="research-chart-title">
+                    <span class="research-chart-index">03</span>
+                    <div><h3>Prediction Error Distribution</h3><p>How the model's test-set errors are distributed.</p></div>
+                </div>
+                <div class="chart-wrap research-residual-chart-wrap"><canvas id="residualDistributionChart" aria-label="Histogram of prediction residuals" role="img"></canvas></div>
+                <p class="chart-note">Residual = actual G3 − predicted G3. Positive values mean the model underpredicted; negative values mean it overpredicted.</p>
+            </article>
+        </div>
+        <p class="research-method-note" id="analyticsMethodNote">Evaluation method: 80% training / 20% testing, random_state = 42. Analytics are computed from the supplied dataset and loaded model.</p>
+    </section>
+
+
+    <!-- =====================================================
+         DATASET EXPLORER + WHAT-IF LAB (additive)
+    ====================================================== -->
+    <section class="card research-analytics-card upgrade-analytics-card" id="datasetExplorerSection">
+        <div class="section-number">05</div>
+        <div class="research-heading-row">
+            <div>
+                <p class="research-eyebrow">DATA EXPLORATION · DESCRIPTIVE ANALYSIS</p>
+                <h2>Dataset Explorer</h2>
+                <p class="section-description">Descriptive charts use observed values from the supplied student dataset, not live prediction outputs.</p>
+            </div>
+            <div class="research-status" id="datasetAnalyticsStatus" role="status">Loading dataset analysis…</div>
+        </div>
+        <div class="research-chart-grid">
+            <article class="chart-panel research-chart-panel">
+                <div class="research-chart-title"><span class="research-chart-index">04</span><div><h3>Feature Correlation Heatmap</h3><p>Pearson correlation across numeric dataset features.</p></div></div>
+                <div class="heatmap-scroll"><div id="correlationHeatmap" class="correlation-heatmap" role="img" aria-label="Correlation heatmap"></div></div>
+                <p class="chart-note">Correlation describes association, not causation.</p>
+            </article>
+            <article class="chart-panel research-chart-panel">
+                <div class="research-chart-title"><span class="research-chart-index">05</span><div><h3>Final Grade Distribution</h3><p>Observed G3 counts across grade bands.</p></div></div>
+                <div class="chart-wrap research-extra-chart-wrap"><canvas id="gradeDistributionChart" aria-label="Distribution of observed final grades" role="img"></canvas></div>
+                <p class="chart-note">Grades are the recorded dataset values on a 0–20 scale.</p>
+            </article>
+            <article class="chart-panel research-chart-panel">
+                <div class="research-chart-title"><span class="research-chart-index">06</span><div><h3>Study Time vs. Average G3</h3><p>Mean observed final grade and sample size per category.</p></div></div>
+                <div class="chart-wrap research-extra-chart-wrap"><canvas id="studyGradeChart" aria-label="Average final grade by study time category" role="img"></canvas></div>
+                <p class="chart-note">Group averages are descriptive and do not prove study time causes grade changes.</p>
+            </article>
+            <article class="chart-panel research-chart-panel">
+                <div class="research-chart-title"><span class="research-chart-index">07</span><div><h3>Residuals vs. Predicted G3</h3><p>Held-out test residuals against predicted grade.</p></div></div>
+                <div class="chart-wrap research-extra-chart-wrap"><canvas id="residualScatterChart" aria-label="Residuals versus predicted final grades" role="img"></canvas></div>
+                <p class="chart-note">Residual = actual G3 − predicted G3. Points around zero indicate smaller signed errors.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="card research-analytics-card upgrade-analytics-card" id="whatIfSection">
+        <div class="section-number">06</div>
+        <p class="research-eyebrow">SCENARIO ANALYSIS · SAME SAVED MODEL</p>
+        <h2>What-if Prediction Lab</h2>
+        <p class="section-description">Adjust selected inputs and compare a hypothetical prediction with the values currently in the student form. This is a model scenario, not a guarantee of real-world improvement.</p>
+        <div class="whatif-grid">
+            <label>Study time <select id="whatIfStudytime"><option value="1">1 — Less than 2 hours</option><option value="2">2 — 2 to 5 hours</option><option value="3" selected>3 — 5 to 10 hours</option><option value="4">4 — More than 10 hours</option></select></label>
+            <label>Absences <input id="whatIfAbsences" type="number" min="0" max="75" value="0"></label>
+            <label>G1 previous grade <input id="whatIfG1" type="number" min="0" max="20" step="0.5" value="10"></label>
+            <label>G2 previous grade <input id="whatIfG2" type="number" min="0" max="20" step="0.5" value="10"></label>
+        </div>
+        <div class="whatif-actions"><button type="button" class="secondary-button" id="runWhatIfButton">Compare scenario</button><button type="button" class="secondary-button" id="copyCurrentInputsButton">Copy current form inputs</button></div>
+        <p class="chart-note" id="whatIfStatus" role="status">Run a normal prediction first, or copy the current form inputs to set a baseline.</p>
+        <div class="whatif-results" id="whatIfResults" hidden>
+            <div class="whatif-result-card"><span>Current form prediction</span><strong id="whatIfBaseline">—</strong></div>
+            <div class="whatif-result-card"><span>Hypothetical prediction</span><strong id="whatIfScenario">—</strong></div>
+            <div class="whatif-result-card"><span>Difference</span><strong id="whatIfDifference">—</strong></div>
+        </div>
+    </section>
+
+    <section class="card research-analytics-card upgrade-analytics-card" id="shapSection">
+        <div class="section-number">07</div>
+        <p class="research-eyebrow">MODEL EXPLAINABILITY · OPTIONAL DEPENDENCY</p>
+        <h2>Individual Prediction Explanation</h2>
+        <p class="section-description">SHAP explains how input features contribute to an individual model output. Run a prediction first.</p>
+        <button type="button" class="secondary-button" id="explainPredictionButton">Explain latest prediction</button>
+        <p class="chart-note" id="shapStatus" role="status">SHAP is optional; if it is unavailable or incompatible, the prediction system will continue to work normally.</p>
+        <div id="shapContributions" class="shap-contributions"></div>
+    </section>
+
+    <!-- =====================================================
+         MODEL INTELLIGENCE
+    ====================================================== -->
+
+    <section class="card model-card">
+
+
+        <div class="section-number">
+            05
+        </div>
+
+
+        <h2>
+            Model Intelligence
+        </h2>
+
+
+        <p class="section-description">
+
+            The prediction engine is powered by a tuned XGBoost
+            regression model trained on student academic and
+            behavioral data.
+
+        </p>
+
+
+
+        <div class="model-stats">
+
+
+            <!-- MODEL -->
+
+            <div class="model-stat">
+
+                <div class="model-icon">
+
+                    ⚙
+
+                </div>
+
+                <div class="model-stat-content">
+
+                    <span>
+                        MODEL
+                    </span>
+
+                    <strong>
+                        Tuned XGBoost
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- R2 -->
+
+            <div class="model-stat">
+
+                <div class="model-icon">
+
+                    ◈
+
+                </div>
+
+                <div class="model-stat-content">
+
+                    <span>
+                        R² SCORE
+                    </span>
+
+                    <strong>
+                        0.841
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MAE -->
+
+            <div class="model-stat">
+
+                <div class="model-icon">
+
+                    ≈
+
+                </div>
+
+                <div class="model-stat-content">
+
+                    <span>
+                        MAE
+                    </span>
+
+                    <strong>
+                        1.139
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PASS FAIL -->
+
+            <div class="model-stat">
+
+                <div class="model-icon success-icon">
+
+                    ✓
+
+                </div>
+
+                <div class="model-stat-content">
+
+                    <span>
+                        PASS / FAIL ACCURACY
+                    </span>
+
+                    <strong>
+                        87.34%
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-divider"></div>
+
+
+        <div class="footer-logo">
+
+            🎓
+
+        </div>
+
+
+        <div class="footer-brand">
+
+            STUDENT PERFORMANCE AI
+
+        </div>
+
+
+        <p>
+            Data Science Programming Project
+        </p>
+
+
+        <span>
+            Machine Learning • Data Analysis • Predictive Analytics
+        </span>
+
+
+        <small>
+            © 2026 Student Performance AI
+        </small>
+
+    </footer>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+</body>
+
+</html>
